@@ -17,6 +17,18 @@ const App = () => {
     let deleteArray = listToDo.filter((item, index) => index != num);
     setListToDo(deleteArray);
   };
+
+  const handleUpdate = (nuevo,number) => {
+     let ListUpdate = listToDo.map((item, index) =>{
+       console.log(number);
+      if(index===parseInt(number)){
+        return listToDo[number]=nuevo
+      }
+      
+     return item
+    }); 
+    setListToDo(ListUpdate)
+  };
   
 
   return (
@@ -34,6 +46,7 @@ const App = () => {
                 item={item}
                 number={index}
                 handleDelete={handleDelete}
+                handleUpdate={handleUpdate}
               />
             ))
           : "no hay Nada que mostrar,carga una nueva tarea :)"}

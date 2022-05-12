@@ -1,23 +1,38 @@
 import React, { useState, useEffect } from "react";
 
-const List = ({ item, number, HandleModify, handleDelete }) => {
+const List = ({ item, number, handleUpdate, handleDelete }) => {
   const [modifying, setModifying] = useState(false);
   const [newValue, setNewValue] = useState(item);
-  function modifynding(){
+  
 
-    return <button>guradar</button>
-        
+  const ChangeValue=()=>{  
+    return (
+      <>
+      <form onSubmit={updateValue} >
+    <input defaultValue={newValue} dataId={number}  />
+    <button>Actualizar</button>
+      </form>
+      </>
+    )
+  }
+  const updateValue=(e)=>{
+    e.preventDefault()
+    console.dir(e.target[0].value);
+    handleUpdate(e.target[0].value,e.target[0].attributes[0].value)
+    setModifying(false)
     
   }
-
   function HandleModify(e) {
     setModifying(true);
   }
 
   return (
     <>
-    {modifying?<modifying/>:
-
+    {modifying?
+    <>
+    <ChangeValue />
+    </>
+      :
       <li value={item}>
         {item} {number}
         <img
