@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./List.css"
 
 const List = ({ item, number, handleUpdate, handleDelete }) => {
   const [modifying, setModifying] = useState(false);
@@ -38,9 +39,12 @@ const List = ({ item, number, handleUpdate, handleDelete }) => {
         </>
       ) : (
         <li value={item}>
-          <form>
-            <input type="radio" onClick={updateValue} dataId={number} />
+          <form className="row">
+            <div className="text col-9">
             {item.task} {number}
+            </div>
+            <div className="actions col-3">
+            <input type="checkbox" onClick={updateValue} dataId={number} />
             <img
               onClick={HandleModify}
               src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/24/000000/external-edit-interface-kiranshastry-solid-kiranshastry-1.png"
@@ -49,6 +53,7 @@ const List = ({ item, number, handleUpdate, handleDelete }) => {
               onClick={() => handleDelete(number)}
               src="https://img.icons8.com/material-rounded/24/000000/filled-trash.png"
             />
+            </div>
           </form>
         </li>
       )}

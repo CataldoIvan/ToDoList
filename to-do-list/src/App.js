@@ -49,9 +49,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <form onSubmit={addTask}>
-        <input className="input" />
-        <button>Guardar</button>
+      <h1>Que tareas tenes que hacer hoy?</h1>
+      <form className="todo-input row" onSubmit={addTask}>
+        <input  className="input col-9" />
+        <button className="todo-button col-3">Guardar</button>
       </form>
 
       <ul>
@@ -72,6 +73,7 @@ const App = () => {
           : "no hay Nada que mostrar,carga una nueva tarea :)"}
       </ul>
       <div className="accordion accordion-flush" hidden id="accordionFlushExample">
+        
         <div className="accordion-item">
           <h2 className="accordion-header" id="flush-headingOne">
             <button
